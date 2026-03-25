@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Only for You 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      text-align: center;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+      overflow: hidden;
+    }
+
+    #lockScreen {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #mainContent {
+      display: none;
+      padding-top: 100px;
+    }
+
+    #message {
+      display: none;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .heart {
+      position: fixed;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🔒 LOCK SCREEN -->
+<div id="lockScreen">
+  <h2>Enter Password to Unlock 💌</h2>
+  <p>(Hint: your nickname 😉)</p>
+  <input type="password" id="password">
+  <button onclick="checkPassword()">Unlock</button>
+</div>
+
+<!-- 💖 MAIN CONTENT -->
+<div id="mainContent">
+  <h1>Hey… you unlocked it 😌</h1>
+
+  <button onclick="showMessage()">Click for surprise 💖</button>
+
+  <div id="message">
+    <p>
+      I don’t say this often… but you really matter to me 💖<br><br>
+      You’re not just my best friend… you’re my favorite person 😌<br><br>
+      You make my normal days feel special ✨<br><br>
+      Bas itna hi… baaki samajh jao ❤️
+    </p>
+  </div>
+</div>
+
+<!-- 🎶 MUSIC -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function checkPassword() {
+  let pass = document.getElementById("password").value;
+
+  if (pass === "cutie") {  // 👉 CHANGE PASSWORD HERE
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("music").play();
+  } else {
+    alert("Wrong password 😏");
+  }
+}
+
+function showMessage() {
+  document.getElementById("message").style.display = "block";
+}
+
+// floating hearts 💖
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
