@@ -81,8 +81,18 @@
 
   <div id="message">
     <p>
+<br><br>
+<button onclick="showChoice()">Will you stay forever? 🥺</button>
+
+<div id="choice" style="display:none;">
+  <br>
+  <button onclick="yes()">Yes 💖</button>
+  <button onclick="no()" id="noBtn">No 😏</button>
+</div>
+
+<div id="response" style="margin-top:20px; font-size:22px;"></div>
       I don’t say this often… but you really matter to me 💖<br><br>
-      You’re not just my best friend… you’re my favorite person 😌<br><br>
+      Your existence really matters… you’re my favorite person 😌<br><br>
       You make my normal days feel special ✨<br><br>
       Bas itna hi… baaki samajh jao ❤️
     </p>
@@ -91,10 +101,9 @@
 
 <!-- 🎶 MUSIC -->
 <audio id="music" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
 
-<script>
 function checkPassword() {
   let pass = document.getElementById("password").value;
 
@@ -125,3 +134,18 @@ setInterval(() => {
 
 </body>
 </html>
+
+function showChoice() {
+  document.getElementById("choice").style.display = "block";
+}
+
+function yes() {
+  document.getElementById("response").innerHTML = "I knew it 😌💖";
+}
+
+function no() {
+  let btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 80 + "vw";
+  btn.style.top = Math.random() * 80 + "vh";
+}
